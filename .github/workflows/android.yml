@@ -13,5 +13,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Build with Gradle
-        run: gradle -g .gradle assembleDebug
+        # تأكد من استخدام هذا السطر تحديداً لتجنب مشكلة الـ gradlew
+        run: ./gradlew assembleDebug || gradle assembleDebug
         
