@@ -5,6 +5,5 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-
 rootProject.name = 'IPTV-Players'
 include ':app'
