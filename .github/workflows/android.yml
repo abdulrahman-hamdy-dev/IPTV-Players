@@ -1,5 +1,7 @@
 name: Android CI
+
 on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,10 +12,9 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Generate Wrapper
-        run: gradle wrapper --gradle-version 8.1
+      
+      # هذا الأمر هو الحل الوحيد: بناء المشروع مباشرة باستخدام إصدار متوافق 
+      # مع تخطي فحص الـ wrapper الذي يسبب المشكلة
       - name: Build with Gradle
-        run: |
-          chmod +x gradlew
-          ./gradlew assembleDebug
-          
+        run: gradle assembleDebug --warning-mode all
+        
