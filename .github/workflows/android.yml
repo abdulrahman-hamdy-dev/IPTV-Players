@@ -12,8 +12,6 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      
-      # هنا التغيير: هنستخدم gradle مباشرة بدل gradlew
       - name: Build with Gradle
-        run: gradle build
+        run: gradle -g .gradle assembleDebug
         
