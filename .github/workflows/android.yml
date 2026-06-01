@@ -12,7 +12,11 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      
+      # هذا الأمر سينشئ الـ wrapper بملفاته وصلاحياته كاملة
+      - name: Setup Gradle Wrapper
+        run: gradle wrapper --gradle-version 8.1
+
       - name: Build with Gradle
-        # تأكد من استخدام هذا السطر تحديداً لتجنب مشكلة الـ gradlew
-        run: ./gradlew assembleDebug || gradle assembleDebug
+        run: ./gradlew assembleDebug
         
